@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class weaponManager : MonoBehavior 
 {
-	
-	public int selectedWeapon = 0;
+	//Déclaration
+	public int selectedWeapon = 0; //Valeur par "défaut" de l'emplacement de l'arme
 	
 	void Start ()
 	{
-		selectedWeapon();	
+		selectedWeapon();
 	}
 	
 	
@@ -17,8 +17,9 @@ public class weaponManager : MonoBehavior
 	void Update ()
 	{
 		
-		int previousSelectedWeapon = selectedWeapon;
+		int previousSelectedWeapon = selectedWeapon; //Décalage de 1 dans les emplacements d'armes
 		
+		//Séléection de l'arme avec la molette de la souris
 		if (Input.GetAxis("Mouse ScrollWheel") > 0F°
 		{
 			if (selectedWeapon >= transform.childCount - 1)
@@ -50,8 +51,7 @@ public class weaponManager : MonoBehavior
 		}
 		
 		
-		
-		
+		//Séelection de l'arme avec les chiffres du clavier (&, é, ", ', ...)
 		if (Input.GetGetDown(KeyCode.Alpha1))
 		{
 				selectedWeapon = 0;

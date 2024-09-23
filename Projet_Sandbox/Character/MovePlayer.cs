@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
+    //Déclaration des variables
+    public float moveSpeed = 5f; //Vitesse de déplacement
+    public float jumpForce = 7f; //Hauteur de saut (Axe Y)
+    public Transform groundCheck; //Ajout sphère (déclencheur)
+    public LayerMask groundLayer; //Ajout masque de vérification (=sol)
 
-    private Rigidbody rb;
-    private bool isGrounded;
+    private Rigidbody rb; //Ajout Cmposant Rigidbody
+    private bool isGrounded; //Ajout bolléen (=sol)
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); //Association Composant Rigidbosy => rb
     }
 
     void Update()
@@ -32,13 +33,14 @@ public class MovePlayer : MonoBehaviour
         // Sauter si le personnage est au sol et que la touche espace est pressée
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Jump();
+            Jump(); //Appel fonction Jump
         }
     }
 
+    //Définition fonction Jump
     void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); //Précision Vecteur (sur l'axe Y)
     }
 
     void OnDrawGizmosSelected()
